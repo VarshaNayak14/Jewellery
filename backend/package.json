@@ -1,0 +1,43 @@
+{
+  "name": "growthkarts-backend",
+  "version": "1.0.0",
+  "description": "growthkarts Premium Clothing E-Commerce Backend (Updated)",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "seed": "node src/seeder.js",
+    "seed:products": "node src/productSeeder.js",
+    "seed:home": "node src/seedHomeProducts.js",
+    "seed:bride": "node src/seedHomeProducts.js --bride-only",
+    "seed:banners": "node src/seedHomepageBanners.js",
+    "seed:demo-reviews": "node src/seedDemoReviews.js",
+    "seed:demo-seller": "node src/seedDemoSeller.js",
+    "seed:pages": "node src/seedPages.js",
+    "seed:demo": "node src/seedDemoData.js",
+    "fix:product-visibility": "node src/fixLegacyProductVisibility.js",
+    "seed:blogs": "node src/seedBlogs.js",
+    "seed:testimonials": "node src/seedTestimonials.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.11.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.18.2",
+    "express-async-errors": "^3.1.1",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "nodemailer": "^10.0.10",
+    "razorpay": "^2.9.2",
+    "zustand": "^5.0.14"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
