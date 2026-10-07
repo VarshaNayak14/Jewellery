@@ -1,0 +1,68 @@
+.ig-highlights {
+  padding: 76px 0 84px;
+  background: linear-gradient(180deg, #fbf8f2, #f4ecdc);
+}
+.ig-highlights__inner {
+  width: min(1320px, calc(100% - 8vw));
+  margin: 0 auto;
+}
+.ig-highlights__heading { margin-bottom: 28px; text-align: center; }
+.ig-highlights__heading > span {
+  color: #92703b;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+.ig-highlights__heading h2 {
+  margin: 8px 0 0;
+  color: #4b2034;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(36px, 4vw, 54px);
+  font-weight: 500;
+}
+.ig-highlights__heading h2 em { color: #a98345; font-style: italic; }
+.ig-highlights__heading p { margin-top: 6px; color: #766b5d; font-size: 14px; }
+.ig-highlights__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.ig-highlights__card {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border: 1px solid rgba(169, 131, 69, .2);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(47, 35, 20, .08);
+}
+.ig-highlights__card iframe {
+  position: absolute;
+  top: -58px;
+  left: 0;
+  width: 100%;
+  height: calc(100% + 58px);
+  border: 0;
+  background: #fff;
+  pointer-events: none;
+}
+.ig-highlights__reel-link {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  cursor: pointer;
+}
+.ig-highlights__reel-link:focus-visible {
+  outline: 3px solid #ad8242;
+  outline-offset: -4px;
+}
+@media (max-width: 900px) {
+  .ig-highlights__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 560px) {
+  .ig-highlights { padding: 54px 0 60px; }
+  .ig-highlights__inner { width: calc(100% - 32px); }
+  .ig-highlights__grid { gap: 10px; }
+  .ig-highlights__card { border-radius: 10px; }
+}

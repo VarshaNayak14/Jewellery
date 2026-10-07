@@ -1,0 +1,239 @@
+.jewel-market-shell { --accent: #a98345; }
+.jewel-market-shell [class~="bg-blue-600"],
+.jewel-market-shell [class~="bg-blue-500"],
+.jewel-market-shell [class~="hover:bg-blue-700"]:hover { background-color: #a98345 !important; }
+.jewel-market-shell [class~="bg-blue-50"],
+.jewel-market-shell [class~="hover:bg-blue-50"]:hover { background-color: #f3eddf !important; }
+.jewel-market-shell [class*="text-blue-600"],
+.jewel-market-shell [class*="text-blue-500"],
+.jewel-market-shell [class*="hover:text-blue-600"]:hover { color: #92703b !important; }
+.jewel-market-shell [class*="border-blue-"] { border-color: rgba(169, 131, 69, .45) !important; }
+.jewel-market-shell [class*="ring-blue-"] { --tw-ring-color: rgba(169, 131, 69, .45) !important; }
+.jewel-market-shell [class*="from-blue-"] { --tw-gradient-from: #b28d51 var(--tw-gradient-from-position) !important; --tw-gradient-to: rgb(178 141 81 / 0) var(--tw-gradient-to-position) !important; }
+.jewel-market-shell [class*="via-blue-"] { --tw-gradient-stops: var(--tw-gradient-from), #c4a66d var(--tw-gradient-via-position), var(--tw-gradient-to) !important; }
+.jewel-market-shell [class*="to-blue-"] { --tw-gradient-to: #8b6835 var(--tw-gradient-to-position) !important; }
+
+.jewel-navbar {
+  z-index: 60 !important;
+  border-bottom: 1px solid rgba(125, 94, 48, .14);
+  background: #F5E7D6 !important;
+  color: #372d20 !important;
+  box-shadow: 0 8px 28px rgba(47, 38, 25, .045);
+  backdrop-filter: blur(18px);
+}
+
+.jewel-navbar .bg-blue-600,
+.jewel-navbar .hover\:bg-blue-700:hover {
+  background-color: #99743d !important;
+}
+
+.jewel-navbar .bg-blue-500 { background-color: #ad874c !important; }
+.jewel-navbar .text-blue-600,
+.jewel-navbar .text-blue-500,
+.jewel-navbar .hover\:text-blue-600:hover,
+.jewel-navbar .hover\:text-blue-400:hover { color: #92703b !important; }
+.jewel-navbar .bg-blue-50,
+.jewel-navbar .hover\:bg-blue-50:hover { background-color: #f3eddf !important; }
+
+.jewel-navbar [class~="mb-4"][class~="relative"] { display: none !important; }
+
+.jewel-navbar nav { border-color: rgba(125, 94, 48, .13) !important; }
+.jewel-navbar .dark\:text-gray-300,
+.jewel-navbar .text-gray-700 { color: #554a3a !important; }
+.jewel-navbar .dark\:bg-gray-900 { background-color: #faf8f3 !important; }
+
+html.dark .jewel-navbar {
+  border-bottom-color: rgba(218, 190, 138, .15);
+  background: #F5E7D6 !important;
+  color: #372d20 !important;
+}
+
+.jewel-footer {
+  --jewel-footer-ink: #eae2d3;
+  border-top: 1px solid rgba(200, 171, 117, .2) !important;
+  background: #29241d !important;
+  color: #c6bdaf !important;
+}
+.jewel-footer h4,
+.jewel-footer .text-gray-900,
+.jewel-footer .dark\:text-white { color: var(--jewel-footer-ink) !important; }
+.jewel-footer a:hover,
+.jewel-footer .text-blue-400 { color: #d1b276 !important; }
+.jewel-footer .bg-gray-100,
+.jewel-footer .dark\:bg-white\/5 {
+  border-color: rgba(218, 190, 138, .18) !important;
+  background: rgba(255, 255, 255, .055) !important;
+}
+.jewel-footer .border-gray-200,
+.jewel-footer .dark\:border-white\/10 { border-color: rgba(218, 190, 138, .17) !important; }
+
+/* ═══════════ Navbar — single row, Tanishq-style ═══════════
+   White bar · Manrope in title case · wine (#660032) for hover/active.
+   Serif (Cormorant) only for the big headings inside the mega menu. */
+.jewel-navbar {
+  --font-body: 'Manrope', 'Poppins', system-ui, sans-serif;
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  font-family: var(--font-body);
+  background: #F5E7D6 !important;
+  color: #372d20 !important;
+  border-bottom: 1px solid #ececec !important;
+  box-shadow: none;
+}
+.jewel-navbar.shadow-md { box-shadow: 0 6px 24px -14px rgba(0, 0, 0, 0.25) !important; }
+
+/* announcement strip */
+.jewel-navbar .nv-marquee { background: #660032; color: #fff; }
+.jewel-navbar .nv-marquee .marquee-track { padding: 6px 0; font-size: 12px; font-weight: 500; letter-spacing: 0.02em; text-transform: none; }
+
+/* row */
+.jewel-navbar .nv-row { height: 64px; }
+@media (min-width: 1024px) { .jewel-navbar .nv-row { height: 76px; gap: 24px; } }
+.jewel-navbar .nv-logo img { height: 44px; }
+@media (min-width: 1024px) { .jewel-navbar .nv-logo img { height: 52px; } }
+.jewel-navbar .nv-hit { height: 76px; }
+
+/* links */
+.jewel-navbar .nv-link {
+  gap: 4px;
+  padding: 8px 13px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #2b2b2b;
+}
+.jewel-navbar .nv-link svg { width: 15px; height: 15px; opacity: 0.55; }
+.jewel-navbar .nv-link::after { left: 13px; right: 13px; bottom: 0; height: 2px; background: #660032; border-radius: 2px; }
+.jewel-navbar .nv-link:hover,
+.jewel-navbar .nv-link.is-active { color: #660032; }
+.jewel-navbar .nv-link.is-active { font-weight: 600; }
+@media (min-width: 1280px) {
+  .jewel-navbar .nv-link { padding: 8px 18px; font-size: 15px; }
+  .jewel-navbar .nv-link::after { left: 18px; right: 18px; }
+}
+
+/* icons */
+.jewel-navbar .nv-right { gap: 2px; }
+.jewel-navbar .nv-icon {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  color: #2b2b2b;
+  transition: background 0.2s, color 0.2s;
+}
+.jewel-navbar .nv-icon svg { width: 21px; height: 21px; stroke-width: 1.6; }
+.jewel-navbar .nv-icon:hover { background: #f7eef1; color: #660032; }
+.jewel-navbar .nv-count {
+  position: absolute;
+  top: 3px;
+  right: 2px;
+  min-width: 17px;
+  height: 17px;
+  padding: 0 4px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  background: #660032;
+}
+/* logged-in avatar */
+.jewel-navbar .nv-right .rounded-full.bg-gradient-to-r { background: #660032 !important; }
+
+/* guest account card */
+.jewel-navbar .nv-guest {
+  position: absolute;
+  right: -8px;
+  top: 100%;
+  z-index: 80;
+  width: 280px;
+  margin-top: 8px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid #ececec;
+  box-shadow: 0 20px 44px -18px rgba(0, 0, 0, 0.25);
+}
+.jewel-navbar .nv-guest::before { content: ''; position: absolute; top: -10px; left: 0; right: 0; height: 10px; }
+.jewel-navbar .nv-guest-title { font-size: 18px; font-weight: 700; color: #1f1f1f; }
+.jewel-navbar .nv-guest-text { margin: 6px 0 16px; font-size: 13px; line-height: 1.5; color: #6b6b6b; }
+.jewel-navbar .nv-guest-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #660032;
+  font-size: 14px;
+  font-weight: 600;
+  color: #660032;
+}
+.jewel-navbar .nv-guest-btn.is-solid { color: #fff; background: #660032; }
+.jewel-navbar .nv-guest-btn:hover { opacity: 0.88; }
+.jewel-navbar .nv-guest-links { display: grid; gap: 2px; margin-top: 14px; padding-top: 12px; border-top: 1px solid #f0f0f0; }
+.jewel-navbar .nv-guest-links a { display: flex; align-items: center; gap: 10px; padding: 8px 4px; font-size: 14px; color: #3a3a3a; border-radius: 6px; }
+.jewel-navbar .nv-guest-links a:hover { color: #660032; background: #faf3f5; }
+.jewel-navbar .nv-guest-links svg { width: 16px; height: 16px; color: #660032; }
+
+/* mega menu keeps the jewellery look */
+.jewel-navbar .nv-mega { background: #fff; border-top: 1px solid #ececec; }
+.jewel-navbar .nv-mega-heading { font-size: clamp(34px, 3.2vw, 48px); line-height: 1.05; color: #1f1f1f; }
+.jewel-navbar .nv-mega-eyebrow { color: #660032; letter-spacing: 0.2em; }
+.jewel-navbar .nv-mega-cta { color: #660032; border-color: rgba(102, 0, 50, 0.4); letter-spacing: 0.12em; }
+.jewel-navbar .nv-tile-label b { font-family: var(--font-body); font-size: 17px; font-weight: 600; }
+.jewel-navbar .nv-tile-label small { font-size: 12px; letter-spacing: 0.02em; }
+
+/* mobile drawer */
+.jewel-navbar .lg\:hidden a[class~="block"],
+.jewel-navbar .lg\:hidden button[class~="text-left"] { font-size: 15px; font-weight: 500 !important; }
+
+/* ── Link typography matched to the reference: Poppins 500, title case,
+      grey inactive, dark active with a short thick gold underline ── */
+.jewel-navbar { --font-body: 'Poppins', system-ui, sans-serif; }
+.jewel-navbar .nv-link {
+  gap: 6px;
+  padding: 8px 0;
+  margin: 0 17px;
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-size: 16.5px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  color: #6f6f6f;
+  transition: color 0.2s;
+}
+.jewel-navbar .nv-link svg { width: 15px; height: 15px; opacity: 0.7; stroke-width: 2; }
+.jewel-navbar .nv-link:hover { color: #1c1c1c; }
+.jewel-navbar .nv-link.is-active { color: #1c1c1c; font-weight: 500; }
+.jewel-navbar .nv-link::after {
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 3px;
+  border-radius: 3px;
+  background: #d4a72c;
+}
+/* underline spans the label only, not the chevron */
+.jewel-navbar .nv-link:has(svg)::after { right: 21px; }
+@media (min-width: 1280px) {
+  .jewel-navbar .nv-link { margin: 0 20px; padding: 8px 0; font-size: 15px; }
+  .jewel-navbar .nv-link::after { left: 0; right: 0; }
+  .jewel-navbar .nv-link:has(svg)::after { right: 21px; }
+}
+@media (max-width: 1180px) { .jewel-navbar .nv-link { margin: 0 12px; font-size: 15.5px; } }
+
+/* ── Beige navbar (#F5E7D6): keep every surface/hover in the same warm family ── */
+.jewel-navbar { border-bottom: 1px solid rgba(125, 94, 48, 0.16) !important; }
+.jewel-navbar .nv-icon:hover,
+.jewel-navbar .nv-account-btn:hover { background: #ecd9c2; color: #660032; }
+.jewel-navbar .nv-mega { background: #fbf4ea; border-top: 1px solid rgba(125, 94, 48, 0.16); }
+.jewel-navbar .nv-drawer,
+html.dark .jewel-navbar .nv-drawer { background: #f5e7d6 !important; border-color: rgba(125, 94, 48, 0.16) !important; }
+.jewel-navbar .nv-drawer input { background: #fbf4ea !important; border-color: rgba(125, 94, 48, 0.22) !important; color: #372d20; }

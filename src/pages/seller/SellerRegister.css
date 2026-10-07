@@ -1,0 +1,86 @@
+.seller-reg-page {
+  background:
+    radial-gradient(50% 40% at 100% 0%, rgba(201, 154, 82, 0.12), transparent 70%),
+    radial-gradient(40% 30% at 0% 100%, rgba(102, 0, 50, 0.05), transparent 70%),
+    #f8f2e6;
+}
+html.dark .seller-reg-page { background: #15110d; }
+
+.seller-reg-hero {
+  position: relative;
+  overflow: hidden;
+  background: #22190f url('/jewelry/gold-detail.jpg') center / cover no-repeat;
+}
+.seller-reg-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(100deg, rgba(26, 18, 9, 0.94) 0%, rgba(26, 18, 9, 0.8) 45%, rgba(58, 12, 32, 0.7) 100%);
+}
+.seller-reg-hero > * { position: relative; }
+
+.seller-reg-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #e6c37e;
+}
+.seller-reg-title {
+  font-size: clamp(30px, 4vw, 50px);
+  font-weight: 500;
+  line-height: 1.12;
+  color: #fff8ea;
+}
+.seller-reg-title em {
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(100deg, #f6e2b0, #e6c37e 50%, #c99a52);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.seller-reg-perk {
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid rgba(246, 226, 176, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+}
+
+.seller-reg-how {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  list-style: none;
+}
+@media (min-width: 768px) { .seller-reg-how { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.seller-reg-how li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3a2f20;
+  background: #fffdf8;
+  border: 1px solid rgba(169, 131, 69, 0.22);
+}
+.seller-reg-how li span {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fffaf0;
+  background: linear-gradient(135deg, #c99a52, #8b6835);
+}
+html.dark .seller-reg-how li { color: #f2e6d0; background: #1e1913; border-color: rgba(218, 190, 138, 0.18); }

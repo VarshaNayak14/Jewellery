@@ -1,0 +1,161 @@
+.tcm {
+  padding: 54px 0 46px;
+  background: #fff;
+  overflow: hidden;
+}
+.tcm-title {
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.8vw, 48px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: #660032;
+}
+.tcm-title em {
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(100deg,#c99a52,#ad8242 50%,#8a6530);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tcm-eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #660032;
+}
+.tcm-line {
+  height: 2px;
+  margin: 14px auto 40px;
+  background: linear-gradient(90deg, transparent, #660032, transparent);
+}
+.tcm-marquee {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(
+    90deg,
+    transparent,
+    #000 6%,
+    #000 94%,
+    transparent
+  );
+  mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+.tcm-track {
+  display: flex;
+  width: max-content;
+  animation: tcmScroll 40s linear infinite;
+  will-change: transform;
+}
+.tcm-marquee:hover .tcm-track {
+  animation-play-state: paused;
+}
+@keyframes tcmScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.tcm-item {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 56px;
+  text-decoration: none;
+}
+.tcm-circle {
+  position: relative;
+  display: block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: visible;
+  box-shadow: 0 14px 30px rgba(44, 36, 26, 0.14);
+  transition:
+    transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.5s;
+}
+.tcm-circle img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.8s;
+}
+.tcm-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1.5px dashed #660032;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.tcm-item:hover .tcm-circle {
+  transform: translateY(-8px) scale(1.06);
+  box-shadow: 0 22px 40px rgba(173, 130, 66, 0.3);
+}
+.tcm-item:hover .tcm-circle img {
+  transform: scale(1.08);
+}
+.tcm-item:hover .tcm-ring {
+  opacity: 1;
+  animation: tcmSpin 8s linear infinite;
+}
+@keyframes tcmSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.tcm-circle {
+  overflow: hidden;
+}
+.tcm-circle .tcm-ring {
+  inset: 0;
+  border-radius: 50%;
+}
+.tcm-label {
+  margin-top: 22px;
+  font-family: var(--font-display);
+  font-size: 15.2px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #3a3226;
+  transition: color 0.3s;
+}
+.tcm-item:hover .tcm-label {
+  color: #ad8242;
+}
+@media (max-width: 700px) {
+  .tcm {
+    padding: 40px 0 34px;
+  }
+  .tcm-circle {
+    width: 130px;
+    height: 130px;
+  }
+  .tcm-item {
+    margin-right: 30px;
+  }
+  .tcm-label {
+    font-size: 15px;
+    margin-top: 14px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tcm-track {
+    animation: none;
+    overflow-x: auto;
+  }
+}

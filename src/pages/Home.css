@@ -1,0 +1,419 @@
+.jewel-home {
+  --jewel-ink: #2c241a;
+  --jewel-muted: #786d5f;
+  --jewel-gold: #ad8242;
+  --jewel-gold-light: #d7b873;
+  --jewel-paper: #f8f5ef;
+  --jewel-line: rgba(92, 73, 43, .17);
+  background: var(--jewel-paper);
+  color: var(--jewel-ink);
+  font-family: var(--font-body);
+  overflow: hidden;
+}
+
+.jewel-home *,
+.jewel-home *::before,
+.jewel-home *::after { box-sizing: border-box; }
+
+.jewel-home a { color: inherit; text-decoration: none; }
+.jewel-home img { display: block; max-width: 100%; }
+.jewel-page-width { width: min(1240px, calc(100% - 9vw)); margin: 0 auto; }
+.jewel-home h1,
+.jewel-home h2,
+.jewel-home .jewel-collection-label strong { font-family: var(--font-display); font-weight: 500; }
+.jewel-home h1 em,
+.jewel-home h2 em {
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(100deg, #c99a52, #ad8242 50%, #8a6530);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.jewel-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #660032;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .28em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.jewel-hero {
+  position: relative;
+  min-height: 650px;
+  height: min(780px, calc(100vh - 84px));
+  background:
+    radial-gradient(ellipse at 69% 49%, rgba(216, 188, 129, .25), transparent 38%),
+    linear-gradient(120deg, #f8f5ef 0%, #f8f5ef 49%, #eee4d2 100%);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.jewel-hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* cream veil keeps the dark headline readable; video shows through on the right */
+.jewel-hero-veil {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(248,245,239,.97) 0%, rgba(248,245,239,.86) 38%, rgba(248,245,239,.28) 72%, rgba(248,245,239,.08) 100%);
+}
+
+.jewel-hero-grain {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: .12;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.84' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
+}
+
+.jewel-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  width: min(1240px, calc(100% - 9vw));
+  height: 100%;
+  min-height: 610px;
+  margin: 0 auto;
+  padding: 32px 0 66px;
+}
+
+.jewel-hero-copy { position: relative; z-index: 3; padding: 12px 0 0 2.5%; }
+.jewel-hero-eyebrow { margin-bottom: 29px; color: #98713a; }
+.jewel-hero-eyebrow i,
+.jewel-ribbon i { width: 5px; height: 5px; border-radius: 50%; background: var(--jewel-gold); }
+.jewel-hero h1 {
+  margin: 0;
+  color: var(--jewel-ink);
+  font-size: clamp(65px, 8.1vw, 113px);
+  letter-spacing: -.065em;
+  line-height: .99;
+}
+.jewel-hero-copy > p {
+  max-width: 385px;
+  margin: 27px 0 0;
+  color: #746a5e;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.jewel-hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 23px; margin-top: 34px; }
+.jewel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 52px;
+  padding: 0 21px;
+  border: 1px solid transparent;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .025em;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease;
+}
+.jewel-button:hover { transform: translateY(-3px); }
+.jewel-button-dark { background: #30271d; color: #fff !important; box-shadow: 0 12px 30px rgba(53, 43, 29, .14); }
+.jewel-button-dark:hover { background: #4a3923; }
+.jewel-button svg { font-size: 15px; }
+.jewel-story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #685d50;
+  font-size: 11px;
+  font-weight: 600;
+}
+.jewel-story-link svg { color: var(--jewel-gold); }
+.jewel-hero-footnote { display: flex; align-items: center; gap: 13px; margin-top: 62px; color: #81776a; font-size: 10px; line-height: 1.6; }
+.jewel-hero-footnote b { color: #43392c; font-weight: 600; }
+.jewel-seal {
+  display: grid;
+  place-items: center;
+  width: 37px;
+  height: 37px;
+  border: 1px solid rgba(173, 130, 66, .45);
+  border-radius: 50%;
+  color: var(--jewel-gold);
+  font-family: var(--font-display);
+  font-size: 20px;
+}
+
+.jewel-hero-art { position: relative; display: grid; place-items: center; height: 100%; min-height: 510px; perspective: 1100px; }
+.jewel-hero-image-wrap {
+  position: relative;
+  z-index: 2;
+  width: min(62%, 355px);
+  height: min(73%, 510px);
+  min-height: 390px;
+  overflow: hidden;
+  background: #d4c3a6;
+  box-shadow: 0 38px 80px rgba(75, 57, 29, .18), 0 8px 22px rgba(75, 57, 29, .1);
+  transform-style: preserve-3d;
+}
+.jewel-hero-image-wrap::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(34, 26, 17, .2));
+  content: '';
+}
+.jewel-hero-image-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.jewel-floating-note {
+  position: absolute;
+  right: 0;
+  bottom: 14%;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px 20px;
+  width: 212px;
+  padding: 17px 18px;
+  background: rgba(251, 248, 242, .94);
+  box-shadow: 0 16px 38px rgba(53, 43, 29, .14);
+  backdrop-filter: blur(12px);
+}
+.jewel-floating-note span { grid-column: 1 / -1; color: var(--jewel-gold); font-size: 8px; font-weight: 700; letter-spacing: .16em; }
+.jewel-floating-note b { color: #3a3024; font-family: var(--font-display); font-size: 13px; font-weight: 500; font-weight: 400; }
+.jewel-floating-note svg { align-self: center; color: var(--jewel-gold); }
+.jewel-hero-bottom {
+  position: absolute;
+  right: 4.5%;
+  bottom: 24px;
+  left: 4.5%;
+  display: flex;
+  justify-content: space-between;
+  color: #8d8273;
+  font-size: 9px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.jewel-scroll-indicator { display: inline-flex; align-items: center; gap: 10px; }
+.jewel-scroll-indicator i { display: inline-block; width: 31px; height: 1px; background: var(--jewel-gold); }
+
+.jewel-ribbon { overflow: hidden; border-top: 1px solid var(--jewel-line); border-bottom: 1px solid var(--jewel-line); background: #f3eee4; }
+.jewel-ribbon-track { display: flex; width: max-content; min-height: 54px; align-items: center; animation: jewel-marquee 36s linear infinite; }
+.jewel-ribbon-track span { display: inline-flex; align-items: center; gap: 15px; padding: 0 42px; color: #655947; font-family: var(--font-display); font-size: 14px; font-style: italic; white-space: nowrap; }
+.jewel-ribbon i { width: 4px; height: 4px; }
+@keyframes jewel-marquee { to { transform: translateX(-50%); } }
+
+.jewel-collections { padding: 108px 0 119px; }
+.jewel-section-heading { display: flex; align-items: end; justify-content: space-between; gap: 28px; margin-bottom: 38px; }
+.jewel-section-heading h2 { margin: 10px 0 0; color: #660032; font-size: clamp(30px, 3.8vw, 48px); letter-spacing: 0; line-height: 1.2; }
+.jewel-section-heading p { margin: 13px 0 0; color: var(--jewel-muted); font-size: 12px; line-height: 1.75; }
+.jewel-text-link,
+.jewel-underlined-link { display: inline-flex; align-items: center; gap: 9px; border-bottom: 1px solid #660032; padding: 0 0 7px; color: #660032 !important; font-size: 10px; font-weight: 700; white-space: nowrap; }
+.jewel-text-link svg,
+.jewel-underlined-link svg { transition: transform .2s ease; }
+.jewel-text-link:hover svg,
+.jewel-underlined-link:hover svg { transform: translateX(4px); }
+.jewel-collection-grid { display: grid; grid-template-columns: 1.22fr .9fr .9fr 1.04fr; align-items: start; gap: 15px; perspective: 1200px; }
+.jewel-collection-card { position: relative; overflow: hidden; background: #ddd1bc; transform-style: preserve-3d; }
+.jewel-collection-card-2 { margin-top: 52px; }
+.jewel-collection-card-3 { margin-top: 14px; }
+.jewel-collection-card-4 { margin-top: 72px; }
+.jewel-collection-card a { position: relative; display: block; aspect-ratio: 3 / 4.1; overflow: hidden; }
+.jewel-collection-card img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s cubic-bezier(.2,.65,.2,1); }
+.jewel-collection-card:hover img { transform: scale(1.065); }
+.jewel-collection-card-2 img { object-position: center 70%; }
+.jewel-collection-card-3 img { object-position: center 48%; }
+.jewel-collection-card-4 img { object-position: center 50%; }
+.jewel-collection-index { position: absolute; top: 17px; left: 17px; z-index: 2; color: #fff; font-size: 9px; letter-spacing: .12em; }
+.jewel-collection-shade { position: absolute; inset: 35% 0 0; background: linear-gradient(transparent, rgba(23, 18, 12, .73)); }
+.jewel-collection-label { position: absolute; right: 18px; bottom: 19px; left: 18px; z-index: 2; display: grid; grid-template-columns: 1fr 32px; align-items: end; color: #fff; }
+.jewel-collection-label small { grid-column: 1 / -1; margin-bottom: 7px; color: rgba(255,255,255,.8); font-size: 9px; letter-spacing: .09em; }
+.jewel-collection-label strong { font-size: clamp(21px, 2.5vw, 31px); line-height: 1; }
+.jewel-collection-label i { display: grid; place-items: center; width: 30px; height: 30px; border: 1px solid rgba(255,255,255,.65); border-radius: 50%; font-style: normal; }
+
+.jewel-story {
+  display: grid;
+  width: min(1600px, calc(100% - 6vw));
+  min-height: 600px;
+  grid-template-columns: 1.08fr .92fr;
+  margin: 82px auto;
+  overflow: hidden;
+  border: 1px solid rgba(118, 91, 49, .13);
+  border-radius: 5px;
+  background: #f2ebdf;
+  box-shadow: 0 22px 65px rgba(64, 45, 22, .09);
+}
+.jewel-story-image { position: relative; min-height: 600px; overflow: hidden; background: #e4c9c0; }
+.jewel-story-image::after { position: absolute; inset: 48% 0 0; background: linear-gradient(transparent, rgba(55, 25, 25, .2)); content: ''; pointer-events: none; }
+.jewel-story-image img { width: 100%; height: 100%; position: absolute; inset: 0; object-fit: cover; object-position: center 54%; transition: transform 1.2s cubic-bezier(.2,.65,.2,1); }
+.jewel-story:hover .jewel-story-image img { transform: scale(1.035); }
+.jewel-story-stamp { position: absolute; right: 7%; bottom: 7%; z-index: 1; display: grid; place-content: center; width: 106px; height: 106px; border: 1px solid rgba(255,255,255,.82); border-radius: 50%; background: rgba(78, 46, 36, .12); color: #fff; font-family: var(--font-display); font-size: 11px; letter-spacing: .12em; line-height: 1.5; text-align: center; text-shadow: 0 1px 12px rgba(0,0,0,.24); transform: rotate(-11deg); backdrop-filter: blur(3px); }
+.jewel-story-copy { position: relative; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; padding: 72px clamp(38px, 6.5vw, 100px); background: radial-gradient(circle at 100% 0, rgba(201, 154, 82, .09), transparent 34%), #f2ebdf; }
+.jewel-story-copy::before { position: absolute; top: 12%; right: 11%; width: 180px; height: 180px; border: 1px solid rgba(173,130,66,.14); border-radius: 50%; content: ''; pointer-events: none; }
+.jewel-story-copy::after { position: absolute; top: calc(12% + 13px); right: calc(11% + 13px); width: 154px; height: 154px; border: 1px solid rgba(173,130,66,.1); border-radius: 50%; content: ''; pointer-events: none; }
+.jewel-story-copy .jewel-eyebrow { position: relative; z-index: 1; gap: 12px; color: #78033e; font-size: 10px; letter-spacing: .24em; }
+.jewel-story-copy .jewel-eyebrow::before { width: 24px; height: 1px; background: #bd9856; content: ''; }
+.jewel-story-copy h2 { position: relative; z-index: 1; max-width: 500px; margin: 23px 0 20px; color: #690037; font-size: clamp(48px, 5.2vw, 76px); letter-spacing: -.035em; line-height: 1.03; }
+.jewel-story-copy h2 em { background: linear-gradient(100deg, #d0a35a, #a87933 75%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.jewel-story-copy p { position: relative; z-index: 1; max-width: 430px; margin: 0; color: #746756; font-size: 14px; line-height: 1.9; }
+.jewel-story-copy .jewel-underlined-link { border-color: #78033e; color: #78033e !important; }
+.jewel-story-proof { position: relative; z-index: 1; display: flex; align-items: center; gap: 13px; margin-top: 58px; color: #746958; font-size: 10px; letter-spacing: .04em; }
+.jewel-story-proof span { color: #78033e; font-family: var(--font-display); font-size: 25px; }
+.jewel-story-proof i { width: 36px; height: 1px; background: var(--jewel-gold-light); }
+
+.jewel-new-arrivals { padding: 109px 0 115px; background: #fbf9f5; }
+.jewel-product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; perspective: 1200px; }
+.jewel-product-tile { min-width: 0; overflow: hidden; border: 1px solid rgba(92, 73, 43, .1); border-radius: 8px; background: #fffdfa; box-shadow: 0 10px 28px rgba(64, 45, 22, .06); transform-style: preserve-3d; transition: box-shadow .25s ease, border-color .25s ease; }
+.jewel-product-tile:hover { border-color: rgba(173, 130, 66, .28); box-shadow: 0 16px 36px rgba(64, 45, 22, .12); }
+.jewel-product-image { position: relative; display: grid; place-items: center; aspect-ratio: 3 / 4; overflow: hidden; background: linear-gradient(145deg, #eee7dc, #e5d9c6); }
+.jewel-product-image img { width: 100%; height: 100%; object-fit: cover; transition: transform .7s cubic-bezier(.2,.65,.2,1); }
+.jewel-product-tile:hover .jewel-product-image img { transform: scale(1.06); }
+.jewel-product-placeholder { color: rgba(100, 78, 43, .45); font-family: var(--font-display); font-size: 22px; letter-spacing: .2em; }
+.jewel-product-view { position: absolute; right: 12px; bottom: 12px; left: 12px; display: flex; align-items: center; justify-content: space-between; padding: 11px 13px; background: rgba(250, 248, 244, .93); color: #4a3c29; font-size: 9px; font-weight: 700; opacity: 0; transform: translateY(8px); transition: opacity .25s, transform .25s; }
+.jewel-product-tile:hover .jewel-product-view { opacity: 1; transform: translateY(0); }
+.jewel-product-copy { min-height: 136px; padding: 16px 15px 17px; background: #fffdfa; }
+.jewel-product-copy > span { color: #a2824e; font-size: 8px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.jewel-product-copy h3 { margin: 6px 0 4px; color: #352c21; font-family: var(--font-display); font-size: 17px; font-weight: 500; }
+.jewel-product-copy h3 a:hover { color: #9c763e; }
+.jewel-product-copy > p { margin: 8px 0 0; color: #4c4132; font-size: 12px; font-weight: 600; }
+.jewel-product-copy > .jewel-product-prices { display: flex; flex-wrap: wrap; align-items: baseline; gap: 7px; }
+.jewel-product-prices strong { color: #302518; font-size: 14px; font-weight: 700; }
+.jewel-product-prices del { color: #978d80; font-size: 11px; font-weight: 400; }
+.jewel-rating { display: flex; align-items: center; gap: 6px; margin-top: 4px; }
+.jewel-rating > span { color: #ad8242; font-size: 9px; letter-spacing: .08em; }
+.jewel-rating small { color: #8a7e6d; font-size: 9px; }
+
+.jewel-service-strip { padding: 27px 0; border-top: 1px solid var(--jewel-line); border-bottom: 1px solid var(--jewel-line); background: #f4f0e8; }
+.jewel-service-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.jewel-trust-note { display: flex; align-items: center; gap: 13px; }
+.jewel-trust-icon { display: grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; border: 1px solid rgba(173,130,66,.3); border-radius: 50%; color: var(--jewel-gold); font-size: 16px; }
+.jewel-trust-note div { display: grid; gap: 4px; }
+.jewel-trust-note strong { color: #453a2c; font-size: 10px; font-weight: 700; }
+.jewel-trust-note div > span { color: #867b6c; font-size: 9px; }
+
+.jewel-last-word { position: relative; display: grid; min-height: 505px; place-items: center; overflow: hidden; background: #332b20; color: #f8f4ec; text-align: center; isolation: isolate; }
+.jewel-last-word::before,
+.jewel-last-word::after { position: absolute; z-index: -1; border: 1px solid rgba(207, 174, 111, .18); border-radius: 50%; content: ''; }
+.jewel-last-word::before { width: 580px; height: 580px; transform: rotateX(63deg) rotateZ(-18deg); }
+.jewel-last-word::after { width: 460px; height: 460px; transform: rotateX(72deg) rotateY(28deg); }
+.jewel-last-word-orb { position: absolute; top: 17%; right: 17%; z-index: -1; width: 120px; height: 120px; border: 1px solid rgba(215,184,115,.23); border-radius: 50%; box-shadow: inset 0 0 46px rgba(215,184,115,.09), 0 0 60px rgba(215,184,115,.06); animation: jewel-orb-float 6s ease-in-out infinite; }
+@keyframes jewel-orb-float { 50% { transform: translate3d(-18px, 16px, 22px) rotateX(18deg); } }
+.jewel-last-word-content { padding: 80px 20px; }
+.jewel-last-word .jewel-eyebrow { color: #f3dca6; }
+.jewel-last-word h2 { margin: 14px 0 30px; color: #fff8ea; font-size: clamp(34px, 5vw, 60px); letter-spacing: 0; line-height: 1.15; }
+.jewel-last-word h2 em { background: linear-gradient(100deg, #f6e2b0, #e6c37e 50%, #c99a52); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.jewel-button-light { min-width: 176px; border-color: rgba(233,216,179,.45); color: #fff !important; }
+.jewel-button-light:hover { background: rgba(255,255,255,.08); }
+.jewel-last-word-check { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; color: rgba(247,240,225,.7); font-size: 9px; }
+.jewel-last-word-check svg { color: #d4b77d; }
+
+
+
+@keyframes jewel-pulse { 0% { box-shadow: 0 0 0 0 rgba(200, 164, 93, .55); } 70%, 100% { box-shadow: 0 0 0 9px rgba(200, 164, 93, 0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .jewel-hero-art::before,
+  .jewel-hero-art::after,
+  .jewel-hero-tag i { animation: none; }
+}
+
+@media (max-width: 900px) {
+  .jewel-page-width,
+  .jewel-hero-inner { width: min(100% - 48px, 700px); }
+  .jewel-hero { min-height: 620px; height: auto; }
+  .jewel-hero-inner { grid-template-columns: .96fr 1.04fr; min-height: 590px; padding: 25px 0 72px; }
+  .jewel-hero h1 { font-size: clamp(60px, 9.2vw, 83px); }
+  .jewel-hero-image-wrap { width: 68%; min-height: 360px; }
+  .jewel-floating-note { right: -4%; width: 185px; }
+  .jewel-collection-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+  .jewel-collection-card-2,
+  .jewel-collection-card-3,
+  .jewel-collection-card-4 { margin-top: 0; }
+  .jewel-collection-card-2,
+  .jewel-collection-card-4 { transform: translateY(32px); }
+  .jewel-story { width: min(100% - 48px, 760px); margin: 58px auto; }
+  .jewel-story-image { min-height: 460px; }
+  .jewel-story-copy { min-height: 460px; padding: 58px 6vw; }
+  .jewel-story-copy { padding: 58px 6vw; }
+  .jewel-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 16px; }
+  .jewel-service-inner { grid-template-columns: repeat(2, 1fr); row-gap: 22px; }
+}
+
+@media (max-width: 600px) {
+  .jewel-hero-art { min-height: 420px; }
+  .jewel-page-width,
+  .jewel-hero-inner { width: calc(100% - 38px); }
+  .jewel-hero { min-height: 0; }
+  .jewel-hero-inner { display: flex; flex-direction: column; align-items: stretch; min-height: 0; padding: 58px 0 71px; }
+  .jewel-hero-copy { padding: 0; }
+  .jewel-hero-eyebrow { margin-bottom: 20px; font-size: 8px; }
+  .jewel-hero h1 { font-size: clamp(62px, 17vw, 91px); }
+  .jewel-hero-copy > p { max-width: 300px; margin-top: 18px; font-size: 12px; }
+  .jewel-hero-actions { gap: 14px; margin-top: 24px; }
+  .jewel-button { min-height: 47px; padding: 0 15px; font-size: 9px; }
+  .jewel-story-link { font-size: 9px; }
+  .jewel-hero-footnote { margin-top: 24px; }
+  .jewel-hero-art { min-height: 400px; margin-top: 5px; }
+  .jewel-hero-image-wrap { width: min(68%, 280px); height: 350px; min-height: 0; }
+  .jewel-floating-note { right: -3px; bottom: 10%; width: 165px; padding: 13px; }
+  .jewel-floating-note b { font-size: 11px; }
+  .jewel-hero-bottom { right: 20px; bottom: 16px; left: 20px; font-size: 7px; }
+  .jewel-ribbon-track { min-height: 46px; }
+  .jewel-ribbon-track span { gap: 11px; padding: 0 24px; font-size: 12px; }
+  .jewel-collections,
+  .jewel-new-arrivals { padding: 72px 0 79px; }
+  .jewel-section-heading { align-items: flex-start; margin-bottom: 27px; }
+  .jewel-section-heading h2 { font-size: 30px; }
+  .jewel-section-heading p { max-width: 245px; font-size: 10px; }
+  .jewel-text-link { align-self: flex-end; gap: 4px; font-size: 8px; }
+  .jewel-text-link svg { font-size: 12px; }
+  .jewel-collection-grid { gap: 10px; }
+  .jewel-collection-card a { aspect-ratio: 3 / 4.2; }
+  .jewel-collection-card-2,
+  .jewel-collection-card-4 { transform: translateY(22px); }
+  .jewel-collection-label { right: 10px; bottom: 13px; left: 10px; }
+  .jewel-collection-label small { font-size: 7px; }
+  .jewel-collection-label strong { font-size: 22px; }
+  .jewel-collection-label i { width: 25px; height: 25px; }
+  .jewel-collection-index { top: 11px; left: 11px; font-size: 7px; }
+  .jewel-story { width: calc(100% - 32px); grid-template-columns: 1fr; margin: 38px auto; border-radius: 10px; }
+  .jewel-story-image { min-height: 330px; }
+  .jewel-story-copy { min-height: 390px; padding: 45px 27px 40px; }
+  .jewel-story-copy::before { top: 8%; right: 7%; width: 125px; height: 125px; }
+  .jewel-story-copy::after { top: calc(8% + 10px); right: calc(7% + 10px); width: 105px; height: 105px; }
+  .jewel-story-copy h2 { max-width: 360px; margin: 18px 0 15px; font-size: clamp(42px, 11vw, 58px); }
+  .jewel-story-copy p { font-size: 13px; line-height: 1.8; }
+  .jewel-story-proof { margin-top: 35px; }
+  .jewel-product-grid { gap: 23px 11px; }
+  .jewel-product-image { aspect-ratio: 3 / 4.2; }
+  .jewel-product-copy { padding-top: 10px; }
+  .jewel-product-copy h3 { font-size: 14px; }
+  .jewel-product-copy > span { font-size: 7px; }
+  .jewel-product-copy > p { font-size: 11px; }
+  .jewel-product-prices strong { font-size: 12px; }
+  .jewel-product-prices del { font-size: 10px; }
+  .jewel-product-view { display: none; }
+  .jewel-service-strip { padding: 23px 0; }
+  .jewel-service-inner { gap: 19px 12px; }
+  .jewel-trust-note { gap: 8px; }
+  .jewel-trust-icon { flex-basis: 32px; width: 32px; height: 32px; font-size: 14px; }
+  .jewel-trust-note strong { font-size: 8px; }
+  .jewel-trust-note div > span { font-size: 7px; }
+  .jewel-last-word { min-height: 405px; }
+  .jewel-last-word::before { width: 400px; height: 400px; }
+  .jewel-last-word::after { width: 310px; height: 310px; }
+  .jewel-last-word h2 { font-size: 34px; }
+  .jewel-last-word-orb { top: 12%; right: 8%; width: 72px; height: 72px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jewel-ribbon-track,
+  .jewel-last-word-orb { animation: none; }
+  .jewel-home *,
+  .jewel-home *::before,
+  .jewel-home *::after { scroll-behavior: auto !important; }
+}

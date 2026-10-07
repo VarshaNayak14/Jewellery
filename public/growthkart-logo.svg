@@ -1,0 +1,64 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cartBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1b8cff"/>
+      <stop offset="100%" stop-color="#0b5fd8"/>
+    </linearGradient>
+    <linearGradient id="cartOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffb11a"/>
+      <stop offset="100%" stop-color="#ff7a00"/>
+    </linearGradient>
+    <linearGradient id="arrowGreen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#57eb58"/>
+      <stop offset="100%" stop-color="#0ab233"/>
+    </linearGradient>
+    <linearGradient id="wordBlue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1b8cff"/>
+      <stop offset="100%" stop-color="#0d60ea"/>
+    </linearGradient>
+    <linearGradient id="wordOrange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffb11a"/>
+      <stop offset="100%" stop-color="#ff7a00"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0e6bff" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="#000000"/>
+
+  <g filter="url(#softGlow)">
+    <path d="M256 404C256 354.7 295.7 315 345 315H726C775.3 315 815 354.7 815 404V482H276L256 404Z" fill="url(#cartBlue)"/>
+    <path d="M612 454H796L698 611H614L612 454Z" fill="url(#cartBlue)"/>
+    <path d="M342 296V218C342 185.967 367.967 160 400 160H505C537.033 160 563 185.967 563 218V296H342Z" fill="url(#cartBlue)"/>
+    <path d="M369 260H535" stroke="#0d4bad" stroke-width="18" stroke-linecap="round" opacity="0.7"/>
+    <path d="M352 318H575" stroke="#dcefff" stroke-width="16" stroke-linecap="round" opacity="0.4"/>
+
+    <g>
+      <path d="M242 510H774L743 620H270L242 510Z" fill="url(#cartOrange)"/>
+      <path d="M235 533H791" stroke="#f9f7ef" stroke-width="22" stroke-linecap="round" opacity="0.4"/>
+    </g>
+
+    <path d="M285 704C285 671.967 310.967 646 343 646H437C469.033 646 495 671.967 495 704V705C495 737.033 469.033 763 437 763H343C310.967 763 285 737.033 285 705V704Z" fill="#0e6de9"/>
+    <path d="M611 704C611 671.967 636.967 646 669 646H763C795.033 646 821 671.967 821 704V705C821 737.033 795.033 763 763 763H669C636.967 763 611 737.033 611 705V704Z" fill="#0e6de9"/>
+    <circle cx="421" cy="709" r="49" fill="#ffffff"/>
+    <circle cx="723" cy="709" r="49" fill="#ffffff"/>
+    <circle cx="421" cy="709" r="24" fill="#ff9b1a"/>
+    <circle cx="723" cy="709" r="24" fill="#ff9b1a"/>
+
+    <path d="M783 280L957 413H838L967 570L1038 540L1141 540L1088 460H1026L1129 334L1054 334L961 385L849 385L783 280Z" fill="url(#arrowGreen)"/>
+
+    <g>
+      <path d="M1067 150C1126 125 1178 130 1219 152C1250 170 1280 198 1280 230C1280 272 1242 306 1187 320L1105 342L1093 293L1158 278C1192 269 1210 248 1210 224C1210 204 1192 189 1166 181C1138 173 1111 180 1088 197L1067 150Z" fill="#1ad73a"/>
+      <path d="M1098 206C1139 167 1189 147 1245 139C1240 173 1228 205 1206 232C1172 275 1123 302 1063 312C1074 275 1085 242 1098 206Z" fill="#9ef34a"/>
+    </g>
+  </g>
+
+  <g>
+    <text x="135" y="800" font-size="240" font-weight="900" letter-spacing="-8" font-family="Arial Black, none" fill="url(#wordBlue)">Growth</text>
+    <text x="760" y="800" font-size="240" font-weight="900" letter-spacing="-8" font-family="Arial Black, none" fill="url(#wordOrange)">Kart</text>
+  </g>
+
+  <path d="M150 820H660" stroke="#ff7a00" stroke-width="14" stroke-linecap="round" opacity="0.8"/>
+  <path d="M760 820H1210" stroke="#0b6fea" stroke-width="14" stroke-linecap="round" opacity="0.8"/>
+</svg>

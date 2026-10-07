@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+  :root {
+    --font-display: 'Poppins', 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    --font-body: 'Poppins', 'Inter', 'Segoe UI', system-ui, -apple-system, 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+  }
+  body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  /* One sans-serif family everywhere; weight does the hierarchy */
+  h1, h2, .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+  }
+  h3, h4, h5, h6 { font-weight: 600; line-height: 1.35; }
+  p, li { font-weight: 400; }
+  b, strong { font-weight: 600; }
+}
+
+@layer components {
+  /* `--accent` is only set inside a seller storefront (see StorefrontLayout);
+     everywhere else the var is unset and the blue fallback keeps the main
+     marketplace's look unchanged. */
+  .btn-primary {
+    @apply text-white font-semibold py-3 px-6 rounded-xl active:scale-95 transition-all duration-200 shadow-lg;
+    background-color: var(--accent, #a98345);
+  }
+  .btn-primary:hover {
+    filter: brightness(0.92);
+    background-color: var(--accent, #8b6835);
+  }
+  .btn-outline {
+    @apply border-2 font-semibold py-3 px-6 rounded-xl transition-all duration-200;
+    border-color: var(--accent, #a98345);
+    color: var(--accent, #a98345);
+  }
+  .btn-outline:hover {
+    background-color: var(--accent, #a98345);
+    @apply text-white;
+  }
+  .card {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden;
+  }
+  .input-field {
+    @apply w-full border border-gray-300 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400
+           focus:outline-none focus:ring-2 focus:border-transparent transition-all;
+  }
+  .input-field:focus {
+    --tw-ring-color: var(--accent, #c99a52);
+  }
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  .skeleton {
+    @apply bg-gray-200 animate-pulse rounded;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f6f1e7;
+}
+::-webkit-scrollbar-thumb {
+  background: #dcc296;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a98345;
+}
+
+/* Shimmer effect */
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200px 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Line clamp */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Google Website Translator — hide its default banner/toolbar and the
+   highlight it puts on translated text; we drive it with our own dropdown
+   (see components/common/LanguageSwitcher.jsx) instead of its stock UI. */
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-icon,
+#goog-gt-tt,
+.goog-tooltip,
+.goog-tooltip:hover {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}
+
+/* Seller storefronts use the light product-detail variant — but only while
+   the storefront itself is in light mode. Storefronts now support a real
+   dark theme via ThemeContext (toggles a `dark` class on <html>), so this
+   legacy override is scoped to `html:not(.dark)`: it still neutralizes the
+   hardcoded dark-hero classes (text-white etc.) the shared ProductDetail
+   page uses in light mode, but steps aside once the seller's storefront is
+   switched to dark, letting ProductDetail's own `dark:` variants render
+   instead of being forced light. */
+html:not(.dark) .storefront-light {
+  background: #ffffff !important;
+  color: #111827;
+}
+html:not(.dark) .storefront-light .text-white { color: #111827 !important; }
+html:not(.dark) .storefront-light .text-gray-100 { color: #1f2937 !important; }
+html:not(.dark) .storefront-light .text-gray-300 { color: #4b5563 !important; }
+html:not(.dark) .storefront-light .text-gray-400 { color: #6b7280 !important; }
+html:not(.dark) .storefront-light .bg-white\/5 { background: #f8fafc !important; }
+html:not(.dark) .storefront-light .border-white\/10,
+html:not(.dark) .storefront-light .border-white\/15 { border-color: #e5e7eb !important; }
+html:not(.dark) .storefront-light .text-white\/60 { color: #6b7280 !important; }
+html:not(.dark) .storefront-light button.bg-blue-600,
+html:not(.dark) .storefront-light button.bg-green-500,
+html:not(.dark) .storefront-light a.bg-green-500,
+html:not(.dark) .storefront-light button.bg-indigo-600,
+html:not(.dark) .storefront-light a.bg-indigo-600 { color: #ffffff !important; }
+
+
+/* ===== Shared section heading style (same as "Best Sellers") ===== */
+.sec-eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .28em;
+  text-transform: uppercase;
+  color: #660032;
+}
+.sec-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.8vw, 48px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 0;
+  color: #660032;
+}
+.sec-title em {
+  font-style: normal;
+  font-weight: 700;
+  background: linear-gradient(100deg, #c99a52, #ad8242 50%, #8a6530);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+/* on dark backgrounds */
+.dark .sec-eyebrow, .sec-on-dark .sec-eyebrow { color: #f3dca6; }
+.dark .sec-title, .sec-on-dark .sec-title { color: #fff8ea; }
+.dark .sec-title em, .sec-on-dark .sec-title em { background-image: linear-gradient(100deg, #f6e2b0, #e6c37e 50%, #c99a52); }
