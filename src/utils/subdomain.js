@@ -1,9 +1,7 @@
-// Detects a seller's storefront from the current hostname, Shopify-style
-// (e.g. "my-shop.growthkarts.com" or, for local dev, "my-shop.localhost:5173").
-// Chrome/Edge/Firefox resolve any "*.localhost" host to 127.0.0.1 automatically,
-// so no DNS or hosts-file changes are needed to test subdomains in development.
+// Seller stores live on Meesho-style paths of the main site (/my-shop,
+// /my-shop/product/123) — never on subdomains — so the site works the same on
+// any host: localhost, *.vercel.app or a custom domain.
 
-const RESERVED_SUBDOMAINS = ['www', 'api', 'admin', 'faq', 'blog', 'blogs', 'search'];
 const RESERVED_PATHS = new Set([
   'shop', 'product', 'checkout', 'order-confirmation', 'order', 'orders', 'contact',
   'courier', 'login', 'register', 'wishlist', 'advertise', 'nearby', 'business',
@@ -11,27 +9,9 @@ const RESERVED_PATHS = new Set([
   'privacy-policy', 'terms-and-conditions', 'faq', 'search', 'blog', 'blogs',
 ]);
 
-// Returns the seller's shopSlug if the current URL is a store subdomain, else null.
-export function getStoreSlugFromHost(hostname = window.location.hostname) {
-  const host = hostname.toLowerCase();
-
-  if (host === 'localhost' || host === '127.0.0.1') return null;
-
-  const parts = host.split('.');
-
-  // "my-shop.localhost" -> ["my-shop", "localhost"]
-  if (parts.length === 2 && parts[1] === 'localhost') {
-    const sub = parts[0];
-    return RESERVED_SUBDOMAINS.includes(sub) ? null : sub;
-  }
-
-  // Production: "my-shop.growthkarts.com" -> subdomain "my-shop".
-  // Root domain itself ("growthkarts.com") has only 2 labels -> no subdomain.
-  if (parts.length > 2) {
-    const sub = parts[0];
-    return RESERVED_SUBDOMAINS.includes(sub) ? null : sub;
-  }
-
+// Stores are path-based only, so the hostname never selects a store. Kept so
+// existing callers (hostSlug || pathSlug) keep working unchanged.
+export function getStoreSlugFromHost() {
   return null;
 }
 
@@ -43,15 +23,9 @@ export function getStoreSlugFromPath(pathname = window.location.pathname) {
   return firstSegment;
 }
 
-// Returns the root domain (without any store subdomain), e.g. "localhost" or "growthkarts.com".
+// The main site is always the current host.
 function getRootDomain(hostname = window.location.hostname) {
-  const host = hostname.toLowerCase();
-  if (host === 'localhost' || host === '127.0.0.1') return 'localhost';
-
-  const parts = host.split('.');
-  if (parts.length === 2 && parts[1] === 'localhost') return 'localhost';
-  // Strip an existing store subdomain (if we're already on one) to find the root domain.
-  return parts.length > 2 ? parts.slice(1).join('.') : host;
+  return hostname.toLowerCase();
 }
 
 // Builds the public store URL for a given shopSlug, matching the current
@@ -65,7 +39,7 @@ export function getStorePath(shopSlug, suffix = '') {
   return `/${encodeURIComponent(String(shopSlug).toLowerCase())}${normalizedSuffix}`;
 }
 
-// Builds the URL back to the main marketplace site (no store subdomain).
+// Builds the URL of the main marketplace site.
 export function getMainSiteUrl(hostname = window.location.hostname) {
   const { protocol, port } = window.location;
   const portSuffix = port ? `:${port}` : '';
