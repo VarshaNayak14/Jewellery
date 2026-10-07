@@ -59,8 +59,10 @@ const rootHost = (() => {
 
 // Extra frontend domains, comma-separated (e.g. a Vercel deployment):
 // CORS_ORIGINS=https://jewellery-three-beta.vercel.app,https://www.mysite.com
-const extraHosts = (process.env.CORS_ORIGINS || "")
-  .split(",")
+// The live Vercel frontend is always allowed, so the API works even before
+// CLIENT_URL / CORS_ORIGINS are updated on the hosting dashboard.
+const LIVE_FRONTEND = "https://jewellery-three-beta.vercel.app";
+const extraHosts = [LIVE_FRONTEND, ...(process.env.CORS_ORIGINS || "").split(",")]
   .map((o) => {
     try {
       return new URL(o.trim()).hostname;
