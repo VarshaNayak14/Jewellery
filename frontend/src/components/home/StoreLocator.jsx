@@ -21,11 +21,17 @@ const SAMPLE = [
 ];
 
 const ease = [0.2, 0.7, 0.2, 1];
+const FALLBACK_IMG = '/jewelry/hero-gold.jpg';
+
+// Seed data may hold "http://localhost:5173/x.png" — keep just the path so it
+// loads from whichever site is serving the page.
+const fixUrl = (url) => (url ? url.replace(/^https?:\/\/localhost(:\d+)?(?=\/)/, '') : url);
 
 // Normalises a real seller (API) or a sample into what the card needs.
 function toCard(s, sample) {
-  const banner = s.bannerType !== 'video' && s.banner;
-  const logo = s.logo || s.lightLogo || s.darkLogo;
+  const video = !sample && s.bannerType === 'video' && fixUrl(s.banner);
+  const banner = s.bannerType !== 'video' && fixUrl(s.banner);
+  const logo = fixUrl(s.logo || s.lightLogo || s.darkLogo);
   return {
     key: s.shopSlug || s.shopName,
     name: s.shopName,
@@ -36,7 +42,8 @@ function toCard(s, sample) {
     rating: Number(s.avgRating || 0),
     ratings: s.numRatings || 0,
     verified: !!s.isVerified,
-    img: sample ? s.img : (banner || logo || '/jewelry/hero-gold.jpg'),
+    video,
+    img: sample ? s.img : (banner || logo || FALLBACK_IMG),
     contain: !sample && !banner && !!logo,
     pos: s.pos || 'center',
     storeUrl: sample ? '/nearby' : getStoreUrl(s.shopSlug),
@@ -45,9 +52,20 @@ function toCard(s, sample) {
 }
 
 function CardMedia({ c }) {
+  const [videoFailed, setVideoFailed] = useState(false);
   return (
     <>
-      <img src={c.img} alt={c.name} loading="lazy" style={{ objectPosition: c.pos }} />
+      {c.video && !videoFailed ? (
+        <video src={c.video} poster={c.contain ? undefined : c.img} autoPlay muted loop playsInline preload="metadata"
+          onError={() => setVideoFailed(true)} />
+      ) : (
+        <img src={c.img} alt={c.name} loading="lazy" style={{ objectPosition: c.pos }}
+          onError={(e) => {
+            if (e.currentTarget.src.endsWith(FALLBACK_IMG)) return;
+            e.currentTarget.src = FALLBACK_IMG;
+            e.currentTarget.closest('.bs-img')?.classList.remove('is-logo');
+          }} />
+      )}
       <span className="bs-badge"><FiStar /> Best Seller</span>
       <div className="bs-over">
         <h3>{c.name}{c.verified && <FiCheckCircle className="bs-verified" title="Verified" />}</h3>
